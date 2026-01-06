@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     try {
       await resend.emails.send({
-        from: 'MA Digitize https://ma-digitize-landing-6zg8.vercel.app/',
+        from: 'MA Digitize <onboarding@resend.dev>',
         to: email,
         subject: 'Welcome to the Waitlist! 🚀',
         html: `
