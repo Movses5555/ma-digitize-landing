@@ -22,23 +22,36 @@ export default function JoinWaitlist({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
     if (!email) {
       setError("Email is required");
       return;
     }
-
     if (!validateEmail(email)) {
       setError("Please enter a valid email address");
       return;
     }
-
+    
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setEmail("");
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || "Something went wrong");
+      }
       setIsJoined(true);
-    }, 1500);
+      setEmail("");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => {
+        setEmail("");
+      }, 10000);
+    }
   };
 
   return (
