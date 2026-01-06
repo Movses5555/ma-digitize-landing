@@ -6,10 +6,33 @@
 }
 
 @theme inline {
+  --font-sans: var(--font-open-sans);
+  --font-heading: var(--font-montserrat);
+
+  --breakpoint-xs: 24rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --spacing-35_75: 143px;
+  --spacing-23_25: 93px;
+  --spacing-22: 88px;
+  --spacing-26: 104px;
+  --shadow-card: 0px 2px 4px 0px #6C757D14;
+  --shadow-lock: 0px 4px 6px -4px #0000001A, 0px 10px 15px -3px #0000001A;
+
+  --background-image-preview-card: linear-gradient(180deg, #F8F9FA 0%, #E9ECEF 50%, #DEE2E6 100%);
+  --background-image-card-scroll-blur:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+  --background-image-conic-gradient:conic-gradient(from 90deg at 50% 50%, #899299 0deg, rgba(137, 146, 153, 0) 360deg);
+  
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE և Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
 }
 
 @media (prefers-color-scheme: dark) {
