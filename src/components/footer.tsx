@@ -1,7 +1,20 @@
+"use client"
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Footer() {
+  const router = useRouter();
+
+  const goTo = (path: string) => {
+    window.scrollTo({
+      top: -100,
+      behavior: "smooth",
+    });
+    router.push(path);
+  }
+
   return (
     <footer className="w-full px-4 md:px-6 pb-4 bg-[#F1F2F3]">
       <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 py-12">
@@ -17,17 +30,17 @@ export default function Footer() {
             </div>
           </Link>
           <div className='w-full h-px bg-[#00000014] my-4 md:my-6'></div>
-          <p className='text-[#0000008F] text-[14px] leading-[150%] tracking-[0px]'>© 2026 MA Digitize. All rights reserved.</p>
-          <div className='flex flex-nowrap justify-around items-center gap-2 xs:gap-4 mt-4 md:mt-6'>
-            <Link href="/privacy" className="flex gap-2">
-              <span className='text-[#6C757D] text-[14px] leading-[150%] tracking-[0px] underline'>Privacy Policy</span>
+          <p className='text-[#6A7282] text-[16px] leading-[24px] tracking-0'>© 2026 MA Digitize. All rights reserved.</p>
+          <div className='flex flex-nowrap justify-around items-center gap-3 mt-4 md:mt-6'>
+            <Link href="/privacy" className="flex gap-2" onClick={() => goTo('/privacy')}>
+              <span className='text-[#4A5565] text-[16px] leading-[24px] tracking-[0px] underline'>Privacy Policy</span>
             </Link>
-            <span className='text-[#0000008F]'>•</span>
-            <Link href="/terms" className="flex gap-2">
-              <span className='text-[#6C757D] text-[14px] leading-[150%] tracking-[0px] underline'>Terms & Conditions</span>
+            <span className='text-[#99A1AF]'>•</span>
+            <Link href="/terms" className="flex gap-2" onClick={() => goTo('/terms')}>
+              <span className='text-[#4A5565] text-[16px] leading-[24px] tracking-[0px] underline'>Terms & Conditions</span>
             </Link>
             <div className='w-px h-4 bg-[#E1E3E5]'></div>
-            <Link href="https://www.linkedin.com">
+            <Link href="https://www.linkedin.com/in/mher-avagyan-a649b7219/" target="_blank">
               <div className="relative w-8 h-8">
                 <Image 
                   src="/icons/linkedin.svg"

@@ -11,12 +11,14 @@ export default function Header() {
   const handleJoinNow = () => {
     if (pathname === '/') {
       window.scrollTo({
-        top: 0,
+        top: -100,
         behavior: "smooth",
       });
     } else {
+      window.scrollTo({
+        top: -100,
+      });
       router.push('/');
-      
     }
   }
 
@@ -25,7 +27,7 @@ export default function Header() {
       <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] p-4 md:px-6">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex gap-2">
-            <div className="relative w-35.75 h-10">
+            <div className="relative w-[105px] h-8">
               <Image 
                 src="/logo.svg"
                 alt="MA Digitize Logo"
@@ -36,12 +38,12 @@ export default function Header() {
               />
             </div>
           </Link>
-          <div className="w-[103px] min-w-[103px]">
+          <div>
             <Button
               onClick={handleJoinNow}
               classNames='px-5 h-10'
             >
-              <span className="text-[#FFFFFFFA] text-[14px] font-bold leading-[170%] tracking-[0%]">
+              <span className="text-[#FFFFFFFA] text-[14px] font-bold leading-[20px] tracking-[0%]">
                 Join Now
               </span>
             </Button>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTitle from "../ui/section-title";
 
 const audiences = [
   { icon: "/icons/designers.svg", title: "UI/UX Designers" },
@@ -13,14 +14,11 @@ export default function Audience() {
   return (
     <section className="w-full flex flex-col items-center px-4 md:px-6">
       <div className="flex flex-col items-center py-14 lg:py-24 px-4 md:px-6 w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5]">
-        <div className="text-center mb-6 md:mb-8">
-          <h2 className="font-heading text-[22px] md:text-[28px] lg:text-[32px] font-bold leading-[120%] tracking-[0px] text-[#000000EB] mb-2">
-            Who This UI Kit Is For
-          </h2>
-          <p className="text-[#0000008F] text-[16px] font-normal leading-[150%] tracking-[0px]">
-            Perfect for professionals who design modern web applications.
-          </p>
-        </div>
+        <SectionTitle
+          subtitle="Built For"
+          title="Who This UI Kit Is For"
+          description="Built for professionals designing scalable, system-driven modern web applications."
+        />
         <div className="w-full max-w-[1036px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
           {audiences.map((item, index) => (
             <div 

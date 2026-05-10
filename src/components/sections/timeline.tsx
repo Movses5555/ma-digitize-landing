@@ -1,42 +1,44 @@
 "use client"
 import { Button } from "../ui/button";
+import SectionTitle from "../ui/section-title";
 
 const phases = [
   {
     number: 1,
     status: "NOW LIVE",
-    title: "Phase 1 — Coming Soon",
+    title: "Phase 1 — Coming Soon",
     subtitle: "(Current Phase)",
     features: [
-      "Sneak peeks & behind-the-scenes",
+      "Sneak peeks & progress updates",
       "Blurred previews",
-      "Join the waitlist for Early Access updates",
+      "Waitlist open",
     ],
     active: true,
   },
   {
     number: 2,
     status: "EARLY-BIRD PRICING",
-    title: "Phase 2 — Early Access",
+    title: "Phase 2 — Early Access",
     subtitle: "(v0.9)",
     features: [
-      "Get access to version 0.9 (30–40% complete)",
-      "Purchase at a discounted Early Access price",
-      "Provide feedback & help shape the final UI Kit",
-      "Receive every future update automatically — including the full v1.0 release and all improvements beyond it",
+      "30-40% complete web UI Kit",
+      "Discounted Early Access pricing",
+      "Feedback-driven development",
+      "Free updates included",
     ],
     active: false,
   },
   {
     number: 3,
     status: "FINAL VERSION",
-    title: "Phase 3 — Full Release",
+    title: "Phase 3 — Full Release",
     subtitle: "(v1.0)",
     features: [
       "Complete component library",
-      "All templates, pages, and variants",
+      "Full web and mobile screens",
+      "Dark mode Included",
       "Fully polished, documented Figma file",
-      "Public release at full price",
+      "Public launch at full price",
     ],
     active: false,
   },
@@ -54,14 +56,11 @@ export default function Timeline() {
   return (
     <section className="w-full flex flex-col items-center px-4 md:px-6">
       <div className="flex flex-col items-center py-14 lg:py-24 w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5]">
-        <div className="text-center mb-10 md:mb-14 px-4">
-          <h2 className="font-heading text-[22px] md:text-[28px] lg:text-[32px] font-bold leading-[120%] text-[#000000EB] mb-3">
-            Release Timeline
-          </h2>
-          <p className="text-[#0000008F] text-[15px] md:text-[16px] font-normal leading-[150%]">
-            See how the MA UI Kit moves from early previews to the full polished v1.0 release.
-          </p>
-        </div>
+        <SectionTitle
+          subtitle="Release Plan"
+          title="Release Timeline"
+          description="See how the MA UI Kit moves from early previews to the full polished v1.0 release."
+        />
         <div className="block lg:hidden w-full relative">
           <div className="absolute right-0 -top-[10px] z-10 bg-card-scroll-blur w-[16px] md:w-[60px] h-[500px]"></div>
         </div>
@@ -93,14 +92,11 @@ export default function Timeline() {
                   <h3 className="font-heading text-[16px] font-bold text-[#000000EB] mb-1 leading-[19.2px] tracking-[0px]">
                     {phase.title}
                   </h3>
-                  <p className="text-[14px] text-[#0000008F] leading-[150%px] tracking-[0px] mb-4 md:mb-5 lg:mb-6">
-                    {phase.subtitle}
-                  </p>
-                  <div className="w-full">
+                  <div className="w-full border-t border-[#E5E7EB] pt-6 mt-6">
                     <ul className="space-y-3">
                       {phase.features.map((feature, fIndex) => (
                         <li key={fIndex} className="flex gap-2 ">
-                          <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full mt-2 ${
+                          <span className={`shrink-0 w-1.5 h-1.5 rounded-full mt-2 ${
                             phase.active ? "bg-[#0043C0]" : "bg-[#899299]"
                           }`} />
                           <span className="text-[14px] leading-[150%] tracking-[0px] text-[#000000C2]">

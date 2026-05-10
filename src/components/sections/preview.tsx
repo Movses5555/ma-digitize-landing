@@ -1,21 +1,22 @@
 "use client"
 import Image from "next/image";
 import { Button } from "../ui/button";
+import SectionTitle from "../ui/section-title";
 
 const previewItems = [
-  { title: "UI Components", image: "/images/previews/preview_1.svg" },
-  { title: "Dashboard Layouts", image: "/images/previews/preview_2.svg" },
-  { title: "Form Elements", image: "/images/previews/preview_3.svg" },
-  { title: "Navigation Patterns", image: "/images/previews/preview_4.svg" },
-  { title: "Data Tables", image: "/images/previews/preview_5.svg" },
-  { title: "Modal & Dialogs", image: "/images/previews/preview_6.svg" },
+  { title: "Buttons, Inputs & Dropdowns", image: "/images/previews/preview_1.svg" },
+  { title: "Navigation Systems", image: "/images/previews/preview_2.svg" },
+  { title: "Tables & Data Views", image: "/images/previews/preview_3.svg" },
+  { title: "Modals & Slideouts", image: "/images/previews/preview_4.svg" },
+  { title: "Dashboards", image: "/images/previews/preview_5.svg" },
+  { title: "Settings Pages", image: "/images/previews/preview_6.svg" },
 ];
 
 export default function Preview() {
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: -100,
       behavior: "smooth",
     });
   }
@@ -23,14 +24,11 @@ export default function Preview() {
   return (
     <section className="w-full flex flex-col items-center px-4 md:px-6">
       <div className="flex flex-col items-center py-14 lg:py-24 px-4 md:px-6 w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5]">
-        <div className="text-center mb-10 md:mb-14 px-4">
-          <h2 className="font-heading text-[22px] md:text-[28px] lg:text-[32px] font-bold leading-[120%] text-[#000000EB] mb-3">
-            Sneak Peek Inside MA UI Kit
-          </h2>
-          <p className="text-[#0000008F] text-[15px] md:text-[16px] font-normal">
-            Get a glimpse of what's inside — full access coming soon.
-          </p>
-        </div>
+        <SectionTitle
+          subtitle="Insite The Kit"
+          title="Sneak Peek Inside MA UI Kit"
+          description="A preview of what’s being built — full access arrives with Early Access. Join the waitlist to get notified when it goes live."
+        />
         <div className="block lg:hidden w-full relative">
           <div className="absolute right-0 -top-[10px] z-20 bg-card-scroll-blur w-[16px] md:w-[60px] h-[270px] xs:h-[362px] sm:h-[370px] md:h-[270px]"></div>
         </div>
@@ -74,12 +72,12 @@ export default function Preview() {
             onClick={scrollToTop}
           >
             <span className="text-[#FFFFFFFA] text-[14px] sm:text-[16px] font-bold leading-[150%] tracking-[0px]">
-              Join Waitlist to Get Full Preview
+              Join the Waitlist
             </span>
           </Button>
-          <p className="text-[#0000008F] text-[14px] font-medium">
+          {/* <p className="text-[#0000008F] text-[14px] font-medium">
             Unlock complete access when we launch
-          </p>
+          </p> */}
         </div>
       </div>
     </section>

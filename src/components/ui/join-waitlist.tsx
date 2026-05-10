@@ -83,13 +83,16 @@ export default function JoinWaitlist({
               onSubmit={handleSubmit}
               className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-start w-full"
             >
-              <div className="flex-grow w-full">
+              <div className="grow w-full">
                 <Input 
                   type="email" 
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
+                    if (error) setError("");
+                  }}
+                  onFocus={(e) => {
                     if (error) setError("");
                   }}
                   error={error}
@@ -111,7 +114,7 @@ export default function JoinWaitlist({
             {
               !!isShowText && (
                 <p className="text-[14px] text-[#0000008F] mt-3 font-normal text-center leading-[150%] tracking-[0px] ">
-                  Be the first to access it when we launch.
+                  Join the waitlist to get Early Access updates.
                 </p>
               )
             }

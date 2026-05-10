@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
 
-interface AccordionItemProps {
+import Image from "next/image";
+import type { ReactNode } from "react";
+
+export interface AccordionItemProps {
   question: string;
-  answer: string;
-  note?: string;
+  answer: ReactNode;
   isOpen: boolean;
   onToggle: () => void;
 }
@@ -13,50 +13,41 @@ interface AccordionItemProps {
 export function AccordionItem({
   question,
   answer,
-  note,
   isOpen,
   onToggle,
 }: AccordionItemProps) {
   return (
-    <div 
-      className="w-full bg-[#FAFBFD] border-[1.5px] border-[#00000014] py-3 rounded-xl overflow-hidden transition-all duration-300"
-    >
-      <button 
+    <div className="w-full overflow-hidden rounded-2xl border border-[#E5E7EB] bg-[#F9FAFB] transition-colors duration-200">
+      <button
+        type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-4 text-left cursor-pointer transition-colors"
+        className="flex w-full cursor-pointer items-start justify-between gap-4 px-6 pb-5 pt-6 text-left"
       >
-        <span 
-          className={`text-[16px] text-[#000000EB] leading-[150%] tracking-[0px] ${
-            isOpen ? "font-bold" : "font-normal"
-          }`}
-        >
+        <span className="text-[16px] font-semibold leading-[150%] tracking-[0px] text-[#111827]">
           {question}
         </span>
-        <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
-          <Image 
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center">
+          <Image
             src={isOpen ? "/icons/minus.svg" : "/icons/plus.svg"}
-            alt={isOpen ? "minus" : "plus"}
+            alt={isOpen ? "Collapse" : "Expand"}
             width={32}
             height={32}
           />
-        </div>
+        </span>
       </button>
-      <div 
-        className={`transition-all duration-300 ease-in-out px-4 ${
-          isOpen ? "max-h-[500px] mt-4 opacity-100" : "max-h-0 opacity-0"
+
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <div className="text-[#0000008F] text-[16px] leading-[150%] tracking-[0px] border-t border-[#00000014] pt-4">
-          {answer}
+        <div className="min-h-0 overflow-hidden">
+          <div className="border-t border-[#E5E7EB]" />
+          <div className="space-y-4 px-6 pb-6 pt-5 text-[15px] font-normal leading-[160%] tracking-[0px] text-[#4B5563]">
+            {answer}
+          </div>
         </div>
-        {!!note && (
-          <p className="text-[16px] text-[#0000008F] mt-6 font-normal leading-[150%] tracking-[0px]">
-            <span className="font-bold">Note: </span>
-            <span>{note}</span>
-          </p>
-        )}
       </div>
     </div>
   );
 }
-

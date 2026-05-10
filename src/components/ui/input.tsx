@@ -21,10 +21,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             className={`
               w-full h-12 px-3  rounded-md text-[16px] transition-all duration-200
-              border outline-none
-              placeholder:text-[16px] placeholder:font-normal placeholder:leading-[150%] placeholder:tracking-[0px]
-              ${!error ? "bg-white border-[#00000014] hover:border-[#00000026] placeholder:text-[#0000003D]" : "placeholder:text-[#899299] bg-[#FCF4F6] border-[#F9D2DA] "}
+              border outline-none bg-white
+              placeholder:text-[16px] placeholder:font-normal placeholder:leading-[150%] placeholder:tracking-[0px] placeholder:text-[#6A7282]
+              
+              focus:border-2  focus:shadow-[0_2px_4px_0_#6C757D0A,0_16px_32px_-4px_#6C757D1A]
+
               disabled:bg-[#F5F5 font-f5] disabled:cursor-not-allowed disabled:opacity-50
+              ${error ? "border-[#F9D2DA] focus:border-[#FB2C36]" : "border-[#D1D5DC] focus:border-[#0059FF]"}
             `}
             {...props}
           />
@@ -40,7 +43,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   height={20}
                 />
               </div>
-              <p className="text-[13px] font-medium text-[#DF1B41] ml-1">
+              <p className="text-[14px] font-normal text-[#E7000B] ml-1">
                 {error}
               </p>
             </div>

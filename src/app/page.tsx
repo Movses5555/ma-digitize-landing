@@ -10,10 +10,10 @@ import FinalCTA from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center font-sans gap-4">
+    <div className="flex flex-col min-h-screen items-center justify-center font-inter gap-4">
       <Hero />
       <Features />
-      <Audience />
+      {/* <Audience /> */}
       <Difference />
       <Preview />
       <WhatsInside />

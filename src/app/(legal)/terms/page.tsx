@@ -4,45 +4,54 @@ const termsData = [
   {
     id: 1,
     title: "Purpose of the Website",
-    description: "MA Digitize provides information about our upcoming digital design product (MA UI Kit) and allows visitors to join the waitlist for Early Access.",
-    footerText: "No product downloads, purchases, or accounts are offered at this stage."
+    description: "This website provides information about MA UI Kit, an upcoming digital design product, and allows visitors to join the Early Access waitlist. \n\n At this stage:",
+    listItems: [
+      "No purchases are available",
+      "No product downloads are provided",
+      "No user accounts are created"
+    ],
   },
   {
     id: 2,
     title: "Acceptable Use",
-    description: "You agree to use the website only for lawful purposes and not to disrupt or attempt to interfere with its functionality or security.",
+    description: "You agree to use this website for lawful purposes only and not to attempt to disrupt, damage, or interfere with its functionality or security.",
   },
   {
     id: 3,
     title: "Intellectual Property",
-    description: "All branding, graphics, images, text, and design elements displayed on this website are the property of MA Digitize.",
-    footerText: "You may not copy, reuse, or redistribute our content without written permission."
+    description: "All content on this website — including branding, text, graphics, images, and design elements — is the property of MA Digitize.",
+    footerText: "You may not copy, reproduce, distribute, or reuse any content without prior written permission."
   },
   {
     id: 4,
     title: "Email Waitlist",
-    description: "By joining our waitlist, you agree to receive emails related to MA Digitize updates, Early Access announcements, and product releases.",
-    footerText: "You can unsubscribe at any time using the link included in every email."
+    description: "By joining the waitlist, you agree to receive emails related to:",
+    listItems: [
+      "MA Digitize updates",
+      "Early Access announcements",
+      "MA UI Kit product releases"
+    ],
+    footerText: "You can unsubscribe at any time via the link included in every email."
   },
   {
     id: 5,
     title: "No Guarantees",
-    description: "All content shown on the website, including blurred product previews, is for informational purposes and may change before the final product release."
+    description: "All content shown on this website, including previews or blurred product visuals, is for informational purposes only and may change before the final product release."
   },
   {
     id: 6,
     title: "Third-Party Tools",
-    description: "The website may use standard third-party services such as analytics or email marketing tools. These services help us understand traffic and manage the waitlist."
+    description: "We may use standard third-party services (such as analytics or email tools) to operate the website and manage the waitlist."
   },
   {
     id: 7,
     title: "Changes to the Terms",
-    description: "We may update these Terms from time to time. The “Last Updated” date reflects the version currently in effect."
+    description: "These Terms & Conditions may be updated from time to time. The “Last updated” date reflects the version currently in effect."
   },
   {
     id: 8,
     title: "Contact",
-    description: "For questions, email us at:",
+    description: "For questions regarding these Terms, contact us at: ",
     email: "hello@madigitize.com"
   }
 ];
@@ -52,7 +61,7 @@ export default function TermsAndConditions() {
   const lastUpdated = "01 Jan 2026";
 
   return (
-    <div className="flex flex-col font-sans px-4 md:px-6">
+    <div className="flex flex-col font-inter px-4 md:px-6">
       <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 md:px-6 py-[56px] lg:py-[96px]">
         <div className="w-full max-w-[822] mx-auto">
           <div className="">
@@ -68,19 +77,19 @@ export default function TermsAndConditions() {
           <div className="w-full h-px bg-[#00000014] mb-5 md:mb-6 lg:mb-8"></div>
           <div className="space-y-10 text-[#0000008F] leading-[170%] text-[16px]">
             <p className="text-[20px] text-[#0000008F] mb-5 md:mb-6 lg:mb-8 leading-[120%] tracking-[0px] ">
-              Welcome to MA Digitize. By accessing or using our website, you agree to the following terms.
+              Welcome to MA Digitize. By accessing or using our Early Access waitlist website, you agree to the following terms.
             </p>
             <ul className="space-y-3">
               {termsData.map((section, index) => (
                 <React.Fragment key={section.id}>
                   <li className="flex flex-col gap-3 mb-0">
                     <div className="flex items-center gap-2">
-                      <span className="flex-shrink-0 w-2 h-2 rounded-full bg-[#0043C0]" />
+                      <span className="shrink-0 w-2 h-2 rounded-full bg-[#0043C0]" />
                       <h2 className="text-[18px] md:text-[22px] lg:text-[24px] font-semibold leading-[120%] tracking-[0px] text-[#000000C2]">
                         {section.id}. {section.title}
                       </h2>
                     </div>
-                    <p className="text-[#0000008F] text-[20px] leading-[150%] tracking-[0px]">
+                    <p className="whitespace-pre-line text-[#0000008F] text-[20px] leading-[150%] tracking-[0px]">
                       {section.description}
                       {section.email && (
                         <a href={`mailto:${section.email}`} className="text-[#000000C2] hover:underline ml-1">
@@ -88,8 +97,17 @@ export default function TermsAndConditions() {
                         </a>
                       )}
                     </p>
+                    {section.listItems && (
+                      <ul className="list-disc list-inside mb-3 pl-3">
+                        {section.listItems.map((item, idx) => (
+                          <li key={idx} className="text-[#000000C2] text-[20px] font-normal leading-[150%] tracking-[0px]">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     {section.footerText && (
-                      <p className="text-[#0000008F] text-[20px] mt-[30px] font-normal leading-[150%] tracking-[0px]">
+                      <p className="whitespace-pre-line text-[#0000008F] text-[20px] mt-[30px] font-normal leading-[150%] tracking-[0px]">
                         {section.footerText}
                       </p>
                     )}

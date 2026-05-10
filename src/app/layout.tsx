@@ -1,18 +1,12 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import type { Metadata } from "next";
-import { Open_Sans, Montserrat, } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -27,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${montserrat.variable} ${openSans.variable}`}>
-      <body className="antialiased bg-[#F1F2F3] font-sans">
+    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+      <body className="antialiased bg-[#F1F2F3] font-inter">
         <Header />
         <main className="w-full pt-26 pb-4 bg-[#F1F2F3]">
           {children}
