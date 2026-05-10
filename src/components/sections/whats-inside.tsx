@@ -1,5 +1,6 @@
 "use client"
 
+import { Fragment } from "react";
 import SectionTitle from "../ui/section-title";
 import Image from "next/image";
 
@@ -148,8 +149,8 @@ export default function WhatsInside() {
               {comparisonRows.map((row, index) => {
                 const isLast = index === comparisonRows.length - 1;
                 return (
-                  <>
-                    <div key={index} className={`grid grid-cols-2 gap-x-12 py-6 lg:gap-x-20 h-[80px] lg:h-22 items-center`}>
+                  <Fragment key={index}>
+                    <div className={`grid grid-cols-2 gap-x-12 py-6 lg:gap-x-20 h-[80px] lg:h-22 items-center`}>
                       <FeatureCell text={row.early} />
                       <FeatureCell text={row.full} />
                     </div>
@@ -158,7 +159,7 @@ export default function WhatsInside() {
                         <div className="border-b border-[#E5E7EB]" />
                       )
                     }
-                  </>
+                  </Fragment>
                 )
               })}
             </div>

@@ -30,23 +30,23 @@ export default function Footer() {
             </div>
           </Link>
           <div className='w-full h-px bg-[#00000014] my-4 md:my-6'></div>
-          <p className='text-[#6A7282] text-[16px] leading-[24px] tracking-0'>© 2026 MA Digitize. All rights reserved.</p>
-          <div className='flex flex-nowrap justify-around items-center gap-3 mt-4 md:mt-6'>
+          <p className='text-[#6A7282] text-[16px] text-center leading-[24px] tracking-0'>© 2026 MA Digitize. All rights reserved.</p>
+          <div className='flex flex-nowrap justify-around items-center gap-2 xs:gap-3 mt-4 md:mt-6'>
             <Link href="/privacy" className="flex gap-2" onClick={() => goTo('/privacy')}>
-              <span className='text-[#4A5565] text-[16px] leading-[24px] tracking-[0px] underline'>Privacy Policy</span>
+              <span className='text-[#4A5565] text-[14px] md:text-[16px] leading-[24px] tracking-[0px] underline'>Privacy Policy</span>
             </Link>
             <span className='text-[#99A1AF]'>•</span>
             <Link href="/terms" className="flex gap-2" onClick={() => goTo('/terms')}>
-              <span className='text-[#4A5565] text-[16px] leading-[24px] tracking-[0px] underline'>Terms & Conditions</span>
+              <span className='text-[#4A5565] text-[14px] md:text-[16px] leading-[24px] tracking-[0px] underline'>Terms & Conditions</span>
             </Link>
             <div className='w-px h-4 bg-[#E1E3E5]'></div>
             <Link href="https://www.linkedin.com/in/mher-avagyan-a649b7219/" target="_blank">
-              <div className="relative w-8 h-8">
+              <div className="relative w-7 h-7 xs:w-8 xs:h-8">
                 <Image 
                   src="/icons/linkedin.svg"
                   alt="MA Digitize Linkedin"
                   fill
-                  className="w-8 h-8 object-contain"
+                  className="w-7 h-7 xs:w-8 xs:h-8 object-contain"
                 />
               </div>
             </Link>

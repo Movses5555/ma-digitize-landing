@@ -17,7 +17,7 @@ export default function SectionTitle({
             {subtitle}
           </span>
         </div>
-        <div className="flex flex-col items-center justify-center text-center mb-4 md:mb-8">
+        <div className="flex flex-col items-center justify-center text-center px-4 mb-4 md:mb-8">
           <h2 className="max-w-[500px] font-heading text-[22px] md:text-[28px] lg:text-[32px] text-center font-bold leading-[120%] tracking-[0px] text-[#000000EB] mb-2">
             {title}
           </h2>
