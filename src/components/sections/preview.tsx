@@ -27,7 +27,7 @@ export default function Preview() {
         <SectionTitle
           subtitle="Insite The Kit"
           title="Sneak Peek Inside MA UI Kit"
-          description="A preview of what’s being built — full access arrives with Early Access. Join the waitlist to get notified when it goes live."
+          description="A preview of what&apos;s being built — full access arrives with Early Access. Join the waitlist to get notified when it goes live."
         />
         <div className="block lg:hidden w-full relative">
           <div className="absolute right-0 -top-[10px] z-20 bg-card-scroll-blur w-[16px] md:w-[60px] h-[270px] xs:h-[362px] sm:h-[370px] md:h-[270px]"></div>
@@ -37,14 +37,14 @@ export default function Preview() {
             {previewItems.map((item, index) => (
               <div 
                 key={index}
-                className="relative aspect-[32/28] md:aspect-[40/28] rounded-[17px] border border-[#00000014] overflow-hidden bg-[#F8F9FA] shadow-sm max-w-[400px] w-[75vw] md:w-[40vw] lg:w-full bg-preview-card" 
+                className="relative aspect-32/28 md:aspect-40/28 rounded-[17px] border border-[#00000014] overflow-hidden bg-[#F8F9FA] shadow-sm max-w-[400px] w-[75vw] md:w-[40vw] lg:w-full bg-preview-card" 
               >
                 <div className="absolute inset-0 w-full h-full">
                   <Image 
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover aspect-[32/28] md:aspect-[40/28] rounded-[18px]"
+                    className="object-cover aspect-32/28 md:aspect-40/28 rounded-[18px]"
                   />
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 z-10 bg-white/20">
