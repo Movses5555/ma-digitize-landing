@@ -55,7 +55,7 @@ export default function JoinWaitlist({
   };
 
   return (
-    <div className="w-full md:max-w-[505px]">
+    <div className="w-full md:max-w-[501px]">
       {
         isJoined ? (
           <div className="w-full flex flex-col items-center">
@@ -81,7 +81,7 @@ export default function JoinWaitlist({
           <div className="w-full">
             <form 
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-start w-full"
+              className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-start w-full"
             >
               <div className="grow w-full">
                 <Input 
@@ -105,7 +105,7 @@ export default function JoinWaitlist({
                   classNames="h-12 px-6"
                   isLoading={isLoading}
                 >
-                  <span className="text-[#FFFFFFFA] text-[16px] font-bold leading-[150%] tracking-[0px]">
+                  <span className="text-[#FFFFFF] text-[16px] font-bold leading-[24px] tracking-[0px]">
                     Join Waitlist
                   </span>
                 </Button>
@@ -113,13 +113,12 @@ export default function JoinWaitlist({
             </form>
             {
               !!isShowText && (
-                <p className="text-[14px] text-[#0000008F] mt-3 font-normal text-center leading-[150%] tracking-[0px] ">
+                <p className="text-[16px] text-[#4A5565] mt-3 font-normal text-center leading-[24px] tracking-[0px]">
                   Join the waitlist to get Early Access updates.
                 </p>
               )
             }
           </div>
-
         )
       }
     </div>

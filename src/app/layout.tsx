@@ -22,9 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable}`}>
-      <body className="antialiased bg-[#F1F2F3] font-inter">
+      <body className="antialiased bg-[#F3F4F6] font-inter">
         <Header />
-        <main className="w-full pt-26 pb-4 bg-[#F1F2F3]">
+        <main className="w-full pt-26 pb-4 bg-[#F3F4F6]">
           {children}
         </main>
         <Footer />

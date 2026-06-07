@@ -43,7 +43,7 @@ export function AccordionItem({
       >
         <div className="min-h-0 overflow-hidden">
           <div className="border-t border-[#E5E7EB]" />
-          <div className="space-y-4 px-6 pb-6 pt-5 text-[15px] font-normal leading-[160%] tracking-[0px] text-[#4B5563]">
+          <div className="space-y-4 px-6 pb-6 pt-5 text-[16px] font-normal leading-[24px] tracking-[0px] text-[#4A5565]">
             {answer}
           </div>
         </div>

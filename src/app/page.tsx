@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen items-center justify-center font-inter gap-4">
       <Hero />
       <Features />
-      {/* <Audience /> */}
+      <Audience />
       <Difference />
       <Preview />
       <WhatsInside />

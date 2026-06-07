@@ -3,14 +3,18 @@
 import { useState } from "react";
 import { AccordionItem } from "@/components/ui/accordion";
 import SectionTitle from "../ui/section-title";
+import Card from "../ui/card";
 
 const faqs = [
   {
     question: "What is Early Access?",
     answer: (
       <>
+        <p className="mb-0">
+          Early Access gives you the opportunity to get MA UI Kit before the full release.
+        </p>
         <p>
-          Early Access gives you the opportunity to get MA UI Kit before the full release.You&apos;ll receive version 0.9 of the product (around 30–40% complete) at a discounted price.
+          You&apos;ll receive version 0.9 of the product (around 30-40% complete) at a discounted price.
         </p>
         <p>
           All Early Access users automatically receive every future update, including the full 1.0 release and all improvements after it.
@@ -21,7 +25,7 @@ const faqs = [
   {
     question: "When will it launch?",
     answer:
-      "The full release is planned for this year. Early Access will be available first, followed by continuous updates until the kit reaches version 1.0 and beyond. Join the waitlist to be notified the moment Early Access opens.",
+      "The full release is planned for later this year. Early Access will be available first, followed by continuous updates until the kit reaches version 1.0 and beyond. Join the waitlist to be notified the moment Early Access opens.",
   },
   {
     question: "What will the pricing be?",
@@ -30,7 +34,7 @@ const faqs = [
   },
   {
     question: "Can I use MA UI Kit for client and commercial projects?",
-    answer: "Yes. Your license allows you to use MA UI Kit for personal projects, client work, freelance work, and commercial products. You can build unlimited designs with it.",
+    answer: "Yes. Your license allows you to use MA UI Kit for personal projects, client work, freelance work, and commercial products. You can build unlimited designs with it. You may not resell, redistribute, or repackage the kit itself as a competing product.",
   },
   {
     question: "Do I need a paid Figma account?",
@@ -45,7 +49,7 @@ const faqs = [
         <div>
           <p className="font-bold text-[#4A5565]">Free Plan</p>
           <p className="mt-1">
-            Free PlanYou&apos;ll use the kit by copying and pasting components into your project files. All styles and components remain fully editable.
+            You&apos;ll use the kit by copying and pasting components into your project files. All styles and components remain fully editable.
           </p>
         </div>
         <div>
@@ -81,6 +85,28 @@ export default function FAQ() {
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+
+  return (
+    <Card
+      id="faq"
+      subtitle="Common Questions"
+      title="Frequently Asked Questions"
+      description="Got questions? Here&apos;s everything you need to know about Early Access, pricing, updates, and more."
+    >
+      <div className="flex w-full flex-col gap-4 md:gap-4">
+        {faqs.map((faq, index) => (
+          <AccordionItem
+            key={faq.question}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openIndex === index}
+            onToggle={() => handleToggle(index)}
+          />
+        ))}
+      </div>
+    </Card>
+  )
 
   return (
     <section className="flex w-full flex-col items-center px-4 md:px-6">

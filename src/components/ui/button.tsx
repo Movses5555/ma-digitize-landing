@@ -28,7 +28,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         data-loading={isLoading ? "" : undefined}
         className={`
           flex items-center justify-center
-          bg-[#0043C0] text-[#FFFFFFFA]
+          bg-[#0043C0] text-[#FFFFFF]
           border-b-2 border-[#00000014]
           enabled:hover:bg-[#003699]
           focus:bg-[#0043C0] focus:outline-none
@@ -40,7 +40,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           disabled:bg-[#F3F4F6] disabled:border-b-[#E5E7EB] disabled:pointer-events-none disabled:text-[#99A1AF]
           disabled:**:text-[#99A1AF]
           disabled:data-loading:bg-[#0043C0] disabled:data-loading:border-b-[#00000014]
-          disabled:data-loading:text-[#FFFFFFFA] disabled:data-loading:**:text-[#FFFFFFFA]
+          disabled:data-loading:text-[#FFFFFF] disabled:data-loading:**:text-[#FFFFFF]
           cursor-pointer disabled:data-loading:cursor-wait
           ${classNames}
         `}
@@ -58,7 +58,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 maskImage: "radial-gradient(closest-side, transparent 62%, black 68%)",
               }}
             />
-            <span className="text-[14px] whitespace-nowrap font-bold leading-[150%] tracking-[0px] text-inherit">
+            <span className="text-[14px] whitespace-nowrap font-bold leading-[20px] tracking-[0px] text-inherit">
               {loadingText}
             </span>
           </div>

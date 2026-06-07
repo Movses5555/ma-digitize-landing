@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import SectionTitle from "../ui/section-title";
 import Image from "next/image";
+import Card from "../ui/card";
 
 const comparisonRows = [
   {
@@ -64,7 +65,7 @@ function FeatureCell({
           height={20}
         />
       </div>
-      <span className="text-[16px] font-normal leading-[28px] tracking-[0px] text-[#4A5565]">
+      <span className="text-[18px] font-normal leading-[28px] tracking-[0px] text-[#4A5565]">
         {primary}
         {note ? (
           <>
@@ -109,6 +110,62 @@ function MobileRoadmapSection({
 }
 
 export default function WhatsInside() {
+  return(
+    <Card
+      id="whats-inside"
+      subtitle="Features & Contents"
+      title="What MA UI Kit Includes"
+      description="Available at Early Access, with much more coming in v1.0."
+    >
+      <div className="w-full pt-0 md:pt-2 lg:pt-4">
+          <div className="flex flex-col gap-10 md:hidden">
+            <MobileRoadmapSection
+              title="Early Access (v0.9)"
+              rows={comparisonRows}
+              pick="early"
+            />
+            <MobileRoadmapSection
+              title="Full Release (v1.0)"
+              rows={comparisonRows}
+              pick="full"
+            />
+          </div>
+
+          <div className="hidden md:block">
+            <div className="grid grid-cols-2 gap-x-12 border-b border-[#F2F4F7] pb-4 lg:gap-x-20">
+              <p className="text-base font-medium leading-[24px] text-[#4A5565]">
+                Early Access (v0.9)
+              </p>
+              <p className="text-base font-medium leading-[24px] text-[#4A5565]">
+                Full Release (v1.0)
+              </p>
+            </div>
+            <div
+              className="h-3 w-full border-y border-[#E5E7EB] bg-[#F3F4F6]"
+              aria-hidden
+            />
+            <div className="flex flex-col">
+              {comparisonRows.map((row, index) => {
+                const isLast = index === comparisonRows.length - 1;
+                return (
+                  <Fragment key={index}>
+                    <div className={`grid grid-cols-2 gap-x-12 py-4 lg:gap-x-20 min-h-[80px] lg:min-h-22 items-center`}>
+                      <FeatureCell text={row.early} />
+                      <FeatureCell text={row.full} />
+                    </div>
+                    {
+                      !isLast && (
+                        <div className="border-b border-[#E5E7EB]" />
+                      )
+                    }
+                  </Fragment>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+    </Card>
+  )
   return (
     <section className="flex w-full flex-col items-center px-4 md:px-6">
       <div className="flex w-full flex-col items-center rounded-2xl border-[1.5px] border-[#E1E3E5] bg-white px-4 py-14 md:px-6 lg:py-24">

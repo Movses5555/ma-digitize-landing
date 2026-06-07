@@ -1,11 +1,12 @@
 "use client"
 import { Button } from "../ui/button";
+import Card from "../ui/card";
 import SectionTitle from "../ui/section-title";
 
 const phases = [
   {
     number: 1,
-    status: "NOW LIVE",
+    status: "Now Live",
     title: "Phase 1 — Coming Soon",
     subtitle: "(Current Phase)",
     features: [
@@ -17,7 +18,7 @@ const phases = [
   },
   {
     number: 2,
-    status: "EARLY-BIRD PRICING",
+    status: "Early-Bird Pricing",
     title: "Phase 2 — Early Access",
     subtitle: "(v0.9)",
     features: [
@@ -30,7 +31,7 @@ const phases = [
   },
   {
     number: 3,
-    status: "FINAL VERSION",
+    status: "Final Version",
     title: "Phase 3 — Full Release",
     subtitle: "(v1.0)",
     features: [
@@ -52,6 +53,76 @@ export default function Timeline() {
       behavior: "smooth",
     });
   }
+
+  return (
+    <Card
+      id="timeline"
+      subtitle="Release Plan"
+      title="Release Phases"
+      description="See how the MA UI Kit moves from early previews to the full polished v1.0 release."
+    >
+      <div className="block lg:hidden w-full relative">
+        <div className="absolute right-0 -top-[10px] z-10 bg-card-scroll-blur w-[16px] md:w-[60px] h-[500px]"></div>
+      </div>
+      <div className="relative w-full overflow-x-auto no-scrollbar pb-4">
+        <div className="relative flex lg:grid lg:grid-cols-3 gap-3 md:gap-6 px-4 md:px-8 lg:px-0 pr-10 lg:mx-auto min-w-max lg:min-w-full">
+          <div className="absolute left-10 right-10 top-10 bg-[#E1E3E5] h-[2px]"></div>
+          {phases.map((phase, index) => (
+            <div
+              key={index}
+              className={`relative z-0 w-[320px] md:w-[400px] lg:w-full flex flex-col items-center justify-between p-4 md:p-5 lg:p-6  shadow-card rounded-[12px]  ${
+                phase.active 
+                  ? "border-2 border-[#0043C0] bg-[#FFFFFF]" 
+                  : "border border-[#E5E7EB] bg-[#F9FAFB]"
+              }`}
+            >
+              <div className="w-full flex flex-col items-center">
+                <div className={`w-20 h-20 rounded-full  flex items-center justify-center text-[32px] leading-[48px] tracking-[0px] font-heading font-bold ${
+                  phase.active ? "bg-[#FFFFFF] border-2 border-[#0043C0] text-[#0043C0]" : "bg-[#F9FAFB] border border-[#D1D5DC] text-[#6A7282]"
+                }`}>
+                  {phase.number}
+                </div>
+                <div className="h-[28px] w-fit mt-4 mb-6 bg-white border border-[#D1D5DC] px-3 rounded-[6px] text-[14px] text-[#4A5565] flex items-center justify-center">
+                  <span className="text-[14px] text-[#4A5565] font-medium leading-[20px] tracking-[0px]">
+                    {phase.status}
+                  </span>
+                </div>
+                <h3 className="font-heading text-[18px] font-bold text-[#101828] mb-1 leading-[28px] tracking-[0px]">
+                  {phase.title}
+                </h3>
+                <div className="w-full border-t border-[#E5E7EB] pt-6 mt-6">
+                  <ul className="space-y-3">
+                    {phase.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex gap-2 ">
+                        <span className={`shrink-0 w-1.5 h-1.5 rounded-full mt-2 ${
+                          phase.active ? "bg-[#0043C0]" : "bg-[#899299]"
+                        }`} />
+                        <span className="text-[14px] leading-[150%] tracking-[0px] text-[#000000C2]">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              {phase.active && (
+                <div className="w-full">
+                  <Button
+                    onClick={scrollToTop}
+                    classNames='h-12'
+                  >
+                    <span className="text-[#FFFFFFFA] text-[14px] font-bold leading-[170%] tracking-[0%]">
+                      Join Waitlist
+                    </span>
+                  </Button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </Card>
+  )
 
   return (
     <section className="w-full flex flex-col items-center px-4 md:px-6">
