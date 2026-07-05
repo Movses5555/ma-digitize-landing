@@ -29,9 +29,8 @@ export default function Footer() {
               />
             </div>
           </Link>
-          <div className='w-full h-px bg-[#00000014] my-4 md:my-6'></div>
-          <p className='text-[#6A7282] text-[16px] text-center leading-[24px] tracking-0'>© 2026 MA Digitize. All rights reserved.</p>
-          <div className='flex flex-nowrap justify-around items-center gap-2 xs:gap-3 mt-4 md:mt-6'>
+          <p className='text-[#6A7282] text-[16px] text-center leading-[24px] tracking-0 mt-6'>© 2026 MA Digitize. All rights reserved.</p>
+          <div className='flex flex-nowrap justify-around items-center gap-2 xs:gap-3 mt-2'>
             <Link href="/privacy" className="flex gap-2" onClick={() => goTo('/privacy')}>
               <span className='text-[#4A5565] text-[14px] md:text-[16px] leading-[24px] tracking-[0px] underline'>Privacy Policy</span>
             </Link>
