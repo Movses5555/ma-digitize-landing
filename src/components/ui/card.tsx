@@ -1,18 +1,19 @@
+"use client";
+
 import SectionTitle from "./section-title";
 
-
 const Card = ({
-    id,
-    subtitle,
-    children,
-    title,
-    description,
-}: { 
-    id: string;
-    subtitle: string;
-    children: React.ReactNode;
-    title: string;
-    description: string;
+  id,
+  subtitle,
+  children,
+  title,
+  description,
+}: {
+  id: string;
+  subtitle: string;
+  children: React.ReactNode;
+  title: string;
+  description: string;
 }) => {
   return (
     <section id={id} className="w-full flex flex-col items-center px-4 md:px-6">

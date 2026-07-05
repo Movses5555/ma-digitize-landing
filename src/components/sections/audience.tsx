@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionTitle from "../ui/section-title";
 import Card from "../ui/card";
+import { RevealCard } from "../ui/reveal";
 
 const audiences = [
   { icon: "/icons/designers.svg", title: "UI/UX Designers" },
@@ -21,11 +22,12 @@ export default function Audience() {
     >
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
         {audiences.map((item, index) => (
-          <div 
+          <RevealCard
             key={index}
-            className="flex items-center gap-4 px-4 md:px-5 lg:px-6 py-[14px] md:py-[22px] box-border rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] shadow-card hover:shadow-md transition-all duration-300"
+            index={index}
+            className="group flex items-center gap-4 px-4 md:px-5 lg:px-6 py-[14px] md:py-[22px] box-border rounded-xl border-[1.5px] border-[#E5E7EB] bg-[#F9FAFB] shadow-card transition-all duration-300 hover:border-[#E1E3E5] hover:bg-white hover:shadow-xl hover:shadow-[#0047FF]/5"
           >
-            <div className="w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 bg-white rounded-lg flex items-center justify-center border border-[#E5E7EB] shadow-card group-hover:scale-110 transition-transform relative">
+            <div className="w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 bg-white rounded-lg flex items-center justify-center border border-[#E1E3E5] shadow-card transition-transform group-hover:scale-110 relative">
               <Image 
                 src={item.icon}
                 alt={item.title}
@@ -37,7 +39,7 @@ export default function Audience() {
             <span className="font-semibold text-[18px] text-[#101828] leading-[28px] tracking-[0px]">
               {item.title}
             </span>
-          </div>
+          </RevealCard>
         ))}
       </div>
     </Card>

@@ -1,6 +1,7 @@
 import Card from "../ui/card";
 import JoinWaitlist from "../ui/join-waitlist";
 import SectionTitle from "../ui/section-title";
+import { RevealCard } from "../ui/reveal";
 
 export default function FinalCTA() {
 
@@ -11,9 +12,9 @@ export default function FinalCTA() {
       title="Get early access to MA UI Kit"
       description="Join the waitlist to secure Early Access at the lowest price."
     >
-      <div className="w-full px-4 flex justify-center">
+      <RevealCard index={0} className="w-full px-4 flex justify-center">
         <JoinWaitlist />
-      </div>
+      </RevealCard>
     </Card>
   )
   return (

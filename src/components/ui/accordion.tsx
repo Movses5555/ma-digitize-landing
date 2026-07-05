@@ -17,7 +17,7 @@ export function AccordionItem({
   onToggle,
 }: AccordionItemProps) {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-[#E5E7EB] bg-[#F9FAFB] transition-colors duration-200">
+    <div className="group w-full overflow-hidden rounded-2xl border-[1.5px] border-[#E5E7EB] bg-[#F9FAFB] shadow-card transition-all duration-300 hover:border-[#E1E3E5] hover:bg-white hover:shadow-xl hover:shadow-[#0047FF]/5">
       <button
         type="button"
         onClick={onToggle}

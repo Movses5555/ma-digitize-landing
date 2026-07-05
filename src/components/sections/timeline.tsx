@@ -2,6 +2,7 @@
 import { Button } from "../ui/button";
 import Card from "../ui/card";
 import SectionTitle from "../ui/section-title";
+import { RevealCard } from "../ui/reveal";
 
 const phases = [
   {
@@ -68,12 +69,13 @@ export default function Timeline() {
         <div className="relative flex lg:grid lg:grid-cols-3 gap-3 md:gap-6 px-4 md:px-8 lg:px-0 pr-10 lg:mx-auto min-w-max lg:min-w-full">
           <div className="absolute left-10 right-10 top-10 bg-[#E1E3E5] h-[2px]"></div>
           {phases.map((phase, index) => (
-            <div
+            <RevealCard
               key={index}
-              className={`relative z-0 w-[320px] md:w-[400px] lg:w-full flex flex-col items-center justify-between p-4 md:p-5 lg:p-6  shadow-card rounded-[12px]  ${
+              index={index}
+              className={`group relative z-0 w-[320px] md:w-[400px] lg:w-full flex flex-col items-center justify-between p-4 md:p-5 lg:p-6 shadow-card rounded-[12px] transition-all duration-300 hover:shadow-xl hover:shadow-[#0047FF]/5 ${
                 phase.active 
-                  ? "border-2 border-[#0043C0] bg-[#FFFFFF]" 
-                  : "border border-[#E5E7EB] bg-[#F9FAFB]"
+                  ? "border-2 border-[#0043C0] bg-[#FFFFFF] hover:border-[#0043C0]" 
+                  : "border-[1.5px] border-[#E5E7EB] bg-[#F9FAFB] hover:border-[#E1E3E5] hover:bg-white"
               }`}
             >
               <div className="w-full flex flex-col items-center">
@@ -117,7 +119,7 @@ export default function Timeline() {
                   </Button>
                 </div>
               )}
-            </div>
+            </RevealCard>
           ))}
         </div>
       </div>

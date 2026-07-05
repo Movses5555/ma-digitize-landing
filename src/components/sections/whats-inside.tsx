@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import SectionTitle from "../ui/section-title";
 import Image from "next/image";
 import Card from "../ui/card";
+import { RevealCard } from "../ui/reveal";
 
 const comparisonRows = [
   {
@@ -119,16 +120,20 @@ export default function WhatsInside() {
     >
       <div className="w-full pt-0 md:pt-2 lg:pt-4">
           <div className="flex flex-col gap-10 md:hidden">
-            <MobileRoadmapSection
-              title="Early Access (v0.9)"
-              rows={comparisonRows}
-              pick="early"
-            />
-            <MobileRoadmapSection
-              title="Full Release (v1.0)"
-              rows={comparisonRows}
-              pick="full"
-            />
+            <RevealCard index={0} className="w-full">
+              <MobileRoadmapSection
+                title="Early Access (v0.9)"
+                rows={comparisonRows}
+                pick="early"
+              />
+            </RevealCard>
+            <RevealCard index={1} className="w-full">
+              <MobileRoadmapSection
+                title="Full Release (v1.0)"
+                rows={comparisonRows}
+                pick="full"
+              />
+            </RevealCard>
           </div>
 
           <div className="hidden md:block">
@@ -149,10 +154,13 @@ export default function WhatsInside() {
                 const isLast = index === comparisonRows.length - 1;
                 return (
                   <Fragment key={index}>
-                    <div className={`grid grid-cols-2 gap-x-12 py-4 lg:gap-x-20 min-h-[80px] lg:min-h-22 items-center`}>
+                    <RevealCard
+                      index={index}
+                      className="grid grid-cols-2 gap-x-12 py-4 lg:gap-x-20 min-h-[80px] lg:min-h-22 items-center"
+                    >
                       <FeatureCell text={row.early} />
                       <FeatureCell text={row.full} />
-                    </div>
+                    </RevealCard>
                     {
                       !isLast && (
                         <div className="border-b border-[#E5E7EB]" />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionTitle from "../ui/section-title";
 import Card from "../ui/card";
+import { RevealCard } from "../ui/reveal";
 
 const differences = [
   {
@@ -45,11 +46,12 @@ export default function Difference() {
     >
       <div className="w-full grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-4 md:gap-5 lg:gap-6">
         {differences.map((item, index) => (
-          <div 
+          <RevealCard
             key={index}
-            className={`flex flex-col items-center p-4 md:p-5 lg:p-6 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] text-center shadow-card hover:shadow-md transition-all duration-300 ${item.gridClass}`}
+            index={index}
+            className={`group flex flex-col items-center p-4 md:p-5 lg:p-6 rounded-xl border-[1.5px] border-[#E5E7EB] bg-[#F9FAFB] text-center shadow-card transition-all duration-300 hover:border-[#E1E3E5] hover:bg-white hover:shadow-xl hover:shadow-[#0047FF]/5 ${item.gridClass}`}
           >
-            <div className="w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 bg-white rounded-lg flex items-center justify-center border border-[#E5E7EB] mb-4 shadow-card group-hover:scale-110 transition-transform relative">
+            <div className="relative mb-4 flex h-10 w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 items-center justify-center rounded-lg border border-[#E1E3E5] bg-white shadow-card transition-transform group-hover:scale-110">
               <Image 
                 src={item.icon}
                 alt={item.title}
@@ -64,7 +66,7 @@ export default function Difference() {
             <p className="text-[#4A5565] text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] tracking-[0px]">
               {item.desc}
             </p>
-          </div>
+          </RevealCard>
         ))}
       </div>
     </Card>

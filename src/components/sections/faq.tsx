@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AccordionItem } from "@/components/ui/accordion";
 import SectionTitle from "../ui/section-title";
 import Card from "../ui/card";
+import { RevealCard } from "../ui/reveal";
 
 const faqs = [
   {
@@ -96,13 +97,14 @@ export default function FAQ() {
     >
       <div className="flex w-full flex-col gap-4 md:gap-4 max-w-[1248px] mx-auto">
         {faqs.map((faq, index) => (
-          <AccordionItem
-            key={faq.question}
-            question={faq.question}
-            answer={faq.answer}
-            isOpen={openIndex === index}
-            onToggle={() => handleToggle(index)}
-          />
+          <RevealCard key={faq.question} index={index} className="w-full">
+            <AccordionItem
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+            />
+          </RevealCard>
         ))}
       </div>
     </Card>

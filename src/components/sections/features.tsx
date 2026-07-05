@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionTitle from "../ui/section-title";
 import Card from "../ui/card";
+import { RevealCard } from "../ui/reveal";
 
 const features = [
   {
@@ -33,8 +34,9 @@ export default function Features() {
     >
       <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
         {features.map((feature, index) => (
-          <div
+          <RevealCard
             key={feature.title}
+            index={index}
             className={`group flex flex-col items-center rounded-xl border-[1.5px] border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5 text-center shadow-card transition-all duration-300 hover:border-[#E1E3E5] hover:bg-white hover:shadow-xl hover:shadow-[#0047FF]/5 lg:p-6 ${
               index === 2
                 ? "md:col-span-2 lg:col-span-1"
@@ -56,7 +58,7 @@ export default function Features() {
             <p className="whitespace-pre-line text-[16px] max-w-[380px] font-normal leading-[24px] tracking-[0px] text-[#4A5565]">
               {feature.description}
             </p>
-          </div>
+          </RevealCard>
         ))}
       </div>
     </Card>
