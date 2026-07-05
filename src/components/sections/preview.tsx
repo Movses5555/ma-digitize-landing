@@ -77,7 +77,7 @@ export default function Preview() {
                 </div>
                 {item.isLocked && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 z-10 bg-white/20">
-                    <div className="w-10 h-10 bg-[#FFFFFFE5] shadow-lock flex items-center justify-center border border-[#E1E3E5] mb-2">
+                    <div className="w-10 h-10 bg-[#FFFFFFE5] shadow-lock flex items-center justify-center border border-[#E1E3E5] mb-2 rounded-lg">
                       <Image 
                         src="/icons/lock.svg"
                         alt="lock"
