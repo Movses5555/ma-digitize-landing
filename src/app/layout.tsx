@@ -21,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
-      <body className="antialiased bg-[#F3F4F6] font-inter">
+    <html lang="en" className={`scroll-smooth min-h-full ${inter.variable}`}>
+      <body className="antialiased bg-[#F3F4F6] font-inter min-h-screen flex flex-col">
         <Header />
-        <main className="w-full pt-26 pb-4 bg-[#F3F4F6]">
+        <main className="flex flex-1 flex-col w-full pt-26 pb-4 bg-[#F3F4F6]">
           {children}
         </main>
         <Footer />

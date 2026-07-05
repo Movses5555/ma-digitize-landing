@@ -61,8 +61,8 @@ function UnsubscribeCard({
   const supportEmail = getSupportEmail();
 
   return (
-    <div className="flex flex-col font-inter px-4 md:px-6">
-      <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 md:px-6 py-14 lg:py-20">
+    <div className="flex flex-1 flex-col px-4 md:px-6">
+      <div className="flex flex-1 w-full items-center justify-center bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 md:px-6 py-14 lg:py-20">
         <div className="w-full max-w-[560px] mx-auto text-center">
           <h1 className="font-heading text-[24px] md:text-[32px] font-bold text-[#101828] leading-tight tracking-[0px]">
             {title}
