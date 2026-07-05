@@ -1,4 +1,5 @@
 import React from "react";
+import { getSupportEmail } from "@/lib/support-email";
 
 const privacyData = [
   {
@@ -54,7 +55,7 @@ const privacyData = [
     id: 8,
     title: "Contact",
     description: "If you have any questions about this Privacy Policy, contact us at: ",
-    email: process.env.EMAIL_SUPPORT || "hello@madigitize.com"
+    email: getSupportEmail()
   }
 ];
 
