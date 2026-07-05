@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full px-4 md:px-6 pb-4 bg-[#F1F2F3]">
-      <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 py-12">
+      <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] px-4 pt-12 pb-4 md:pb-5 lg:pt-16 lg:pb-8">
         <div className="max-w-100 mx-auto flex flex-col justify-center items-center">
           <Link href="/" className="flex gap-2">
             <div className="relative w-23.25 h-20">
