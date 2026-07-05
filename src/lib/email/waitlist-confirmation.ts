@@ -113,8 +113,8 @@ export function getWaitlistConfirmationHtml(opts: {
             <div style="height:1px;background:#E5E7EB;margin:0 0 20px;"></div>
             <p style="margin:0 0 12px;font-size:13px;line-height:1.6;color:${footerMuted};">
               You're receiving this email because you joined the MA UI Kit Early Access waitlist on the MA Digitize website.
-              Want to stop receiving these emails?
-              <a href="${unsubscribeHref}" style="color:${linkBlue};text-decoration:underline;">Unsubscribe</a>.
+              // Want to stop receiving these emails?
+              // <a href="${unsubscribeHref}" style="color:${linkBlue};text-decoration:underline;">Unsubscribe</a>.
             </p>
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>

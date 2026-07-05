@@ -30,7 +30,7 @@ export default function Preview() {
       description="A preview of what&apos;s being built — full access arrives with Early Access. Join the waitlist to get notified when it goes live."
     >
         <div className="block lg:hidden w-full relative">
-          <div className="absolute right-0 -top-[10px] z-20 bg-card-scroll-blur w-[16px] md:w-[60px] h-[270px] xs:h-[362px] sm:h-[370px] md:h-[270px]"></div>
+          <div className="absolute right-0 -top-[10px] z-20 bg-card-scroll-blur w-[16px] md:w-[60px] h-[270px] xs:h-[345px] sm:h-[370px] md:h-[300px]"></div>
         </div>
         <div className="w-full max-w-[1248px] overflow-x-auto no-scrollbar pb-8 md:pb-10 lg:pb-12">
           <div className="flex lg:grid lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 pr-4 md:pr-10 lg:pr-0 lg:px-0 mx-auto min-w-max lg:min-w-full">
@@ -65,19 +65,19 @@ export default function Preview() {
               // </div>
               <div 
                 key={index}
-                className="relative aspect-40/28 overflow-hidden bg-[#F9FAFB]  max-w-[400px] w-[75vw] md:w-[40vw] lg:w-full" 
+                className={`relative aspect-40/28 overflow-hidden bg-[#F9FAFB] border border-[#E5E7EB] rounded-lg max-w-[400px] w-[75vw] md:w-[40vw] lg:w-full shadow-[0px_1px_2px_0px_#0307120F] ${item.isLocked ? "" : "p-6"}`} 
               >
-                <div className="absolute inset-0 w-full h-full">
+                <div className="w-full h-full bg-[#F9FAFB] ">
                   <Image 
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover aspect-40/28 rounded-[12px]"
+                    className="object-cover relative!"
                   />
                 </div>
                 {item.isLocked && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 z-10 bg-white/20">
-                    <div className="w-10 h-10 bg-[#FFFFFFE5] rounded-lg shadow-lock flex items-center justify-center border border-[#E1E3E5] mb-2">
+                    <div className="w-10 h-10 bg-[#FFFFFFE5] shadow-lock flex items-center justify-center border border-[#E1E3E5] mb-2">
                       <Image 
                         src="/icons/lock.svg"
                         alt="lock"

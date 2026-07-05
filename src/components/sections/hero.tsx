@@ -31,14 +31,14 @@ export default function Hero() {
         </p>
         <JoinWaitlist isShowText />
         <div className="mt-8 md:mt-12 lg:mt-14 w-full bg-white">
-          <div className="relative aspect-[1248/569.44] w-full overflow-hidden rounded-[17px]">
+          <div className="relative aspect-[1248/569.44] w-full overflow-hidden">
             <Image 
               src="/hero_preview.svg"
               alt="MA UI Kit Dashboard Preview"
               fill
               priority
               fetchPriority="high"
-              className="object-cover rounded-[17px]"
+              className="object-cover"
             />
           </div>
         </div>

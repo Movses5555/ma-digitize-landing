@@ -94,7 +94,7 @@ export default function FAQ() {
       title="Frequently Asked Questions"
       description="Got questions? Here&apos;s everything you need to know about Early Access, pricing, updates, and more."
     >
-      <div className="flex w-full flex-col gap-4 md:gap-4">
+      <div className="flex w-full flex-col gap-4 md:gap-4 max-w-[764px] mx-auto">
         {faqs.map((faq, index) => (
           <AccordionItem
             key={faq.question}
