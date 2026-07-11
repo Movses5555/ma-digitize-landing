@@ -13,6 +13,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "MA UI Kit — Early Access Coming Soon",
   description: "A modern web app design system built for consistency and scalability. Preview the roadmap and join the Early Access waitlist.",
+  verification: {
+    google: "e5GmrfuHgumkKKpizfIuR7vudiwDyYpo5UEzdkeEDWs",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
