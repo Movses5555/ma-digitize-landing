@@ -11,8 +11,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MA Digitize - Modern UI Kit",
-  description: "A professional design system for modern web applications.",
+  title: "MA UI Kit — Early Access Coming Soon",
+  description: "A modern web app design system built for consistency and scalability. Preview the roadmap and join the Early Access waitlist.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
