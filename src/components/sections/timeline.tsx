@@ -99,7 +99,7 @@ export default function Timeline() {
                         <span className={`shrink-0 w-1.5 h-1.5 rounded-full mt-2 ${
                           phase.active ? "bg-[#0043C0]" : "bg-[#899299]"
                         }`} />
-                        <span className="text-[14px] leading-[150%] tracking-[0px] text-[#000000C2]">
+                        <span className="text-[16px] leading-[150%] tracking-[0px] text-[#4A5565]">
                           {feature}
                         </span>
                       </li>
