@@ -13,6 +13,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "MA UI Kit — Early Access Coming Soon",
   description: "A modern web app design system built for consistency and scalability. Preview the roadmap and join the Early Access waitlist.",
+  metadataBase: new URL("https://madigitize.com"),
+  alternates: {
+    canonical: "/",
+  },
   verification: {
     google: "e5GmrfuHgumkKKpizfIuR7vudiwDyYpo5UEzdkeEDWs",
   },

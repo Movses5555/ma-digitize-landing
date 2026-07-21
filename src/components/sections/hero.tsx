@@ -24,8 +24,10 @@ export default function Hero() {
             Build clean, consistent, production-ready web app interfaces with a scalable Figma design system.
           </p>
         </Reveal>
-        <Reveal immediate delay={300}>
-          <JoinWaitlist isShowText />
+        <Reveal immediate delay={300} className = "w-full">
+          <div className="w-full flex flex-col items-center">
+            <JoinWaitlist isShowText />
+          </div>
         </Reveal>
         <Reveal immediate delay={450} y={32} className="mt-8 md:mt-12 lg:mt-14 w-full max-w-[1248px] bg-white">
           <div className="relative aspect-[1248/569.44] w-full overflow-hidden">
