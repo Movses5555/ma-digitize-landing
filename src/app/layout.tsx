@@ -15,17 +15,18 @@ export const metadata: Metadata = {
   description: "A modern web app design system built for consistency and scalability. Preview the roadmap and join the Early Access waitlist.",
   metadataBase: new URL("https://madigitize.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://madigitize.com",
   },
   verification: {
     google: "e5GmrfuHgumkKKpizfIuR7vudiwDyYpo5UEzdkeEDWs",
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+      { url: "https://madigitize.com/favicon.ico", sizes: "any" },
+      { url: "https://madigitize.com/icon.png", type: "image/png", sizes: "192x192" },
     ],
-    apple: "/apple-icon.png",
+    shortcut: "https://madigitize.com/favicon.ico",
+    apple: "https://madigitize.com/apple-icon.png",
   },
 };
 

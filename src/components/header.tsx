@@ -7,8 +7,8 @@ import { useRouter, usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 
 const NAV_LINKS = [
-  { label: "Overview", href: "#waitlist" },
-  { label: "Inside the kit", href: "#whats-inside" },
+  { label: "Overview", href: "#overview" },
+  { label: "Inside the kit", href: "#preview" },
   { label: "Features", href: "#features" },
   { label: "Release plan", href: "#timeline" },
   { label: "FAQs", href: "#faq" },

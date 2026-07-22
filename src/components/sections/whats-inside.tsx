@@ -113,7 +113,7 @@ function MobileRoadmapSection({
 export default function WhatsInside() {
   return(
     <Card
-      id="whats-inside"
+      id="features"
       subtitle="Features & Contents"
       title="What MA UI Kit Includes"
       description="Available at Early Access, with much more coming in v1.0."

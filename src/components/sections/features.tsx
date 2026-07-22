@@ -27,7 +27,7 @@ const features = [
 export default function Features() {
   return (
     <Card
-      id="features"
+      id="overview"
       subtitle="Design System Overview"
       title="Design Faster. Design Better. Design Consistently."
       description="A structured Figma design system built to create scalable, modern web app interfaces."
