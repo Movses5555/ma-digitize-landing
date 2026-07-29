@@ -5,6 +5,11 @@ import {
   getWaitlistConfirmationHtml,
   WAITLIST_CONFIRMATION_SUBJECT,
 } from "@/lib/email/waitlist-confirmation";
+import {
+  getWaitlistSupportNotificationHtml,
+  WAITLIST_SUPPORT_NOTIFICATION_SUBJECT,
+} from "@/lib/email/waitlist-support-notification";
+import { getSupportEmail } from "@/lib/support-email";
 import { getWaitlistUnsubscribeUrl } from "@/lib/waitlist/unsubscribe";
 import { Resend } from "resend";
 
@@ -19,20 +24,37 @@ type WaitlistRow = {
   unsubscribe_token: string;
 };
 
+function getFromAddress() {
+  return process.env.RESEND_FROM ?? "MA Digitize <onboarding@resend.dev>";
+}
+
 async function sendWaitlistConfirmation(email: string, unsubscribeToken: string) {
-  const from =
-    process.env.RESEND_FROM ?? "MA Digitize <onboarding@resend.dev>";
   const unsubscribeHref = getWaitlistUnsubscribeUrl(unsubscribeToken);
   const linkedInHref = process.env.COMPANY_LINKEDIN_URL;
 
   await resend.emails.send({
-    from,
+    from: getFromAddress(),
     to: email,
     subject: WAITLIST_CONFIRMATION_SUBJECT,
     html: getWaitlistConfirmationHtml({
       unsubscribeHref,
       ...(linkedInHref ? { linkedInHref } : {}),
     }),
+  });
+}
+
+async function notifySupportOfJoin(email: string, createdAt: Date) {
+  const supportEmail = getSupportEmail();
+  if (!supportEmail) {
+    console.warn("EMAIL_SUPPORT is not set; skipping support join notification");
+    return;
+  }
+
+  await resend.emails.send({
+    from: getFromAddress(),
+    to: supportEmail,
+    subject: WAITLIST_SUPPORT_NOTIFICATION_SUBJECT,
+    html: getWaitlistSupportNotificationHtml({ email, createdAt }),
   });
 }
 
@@ -87,7 +109,10 @@ export async function POST(request: Request) {
     }
 
     try {
-      await sendWaitlistConfirmation(email, row.unsubscribe_token);
+      await Promise.all([
+        sendWaitlistConfirmation(email, row.unsubscribe_token),
+        notifySupportOfJoin(email, row.created_at),
+      ]);
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
     }
