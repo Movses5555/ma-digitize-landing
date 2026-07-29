@@ -28,12 +28,33 @@ function getFromAddress() {
   return process.env.RESEND_FROM ?? "MA Digitize <onboarding@resend.dev>";
 }
 
+async function sendResendEmail(params: {
+  to: string;
+  subject: string;
+  html: string;
+}) {
+  const { data, error } = await resend.emails.send({
+    from: getFromAddress(),
+    to: params.to,
+    subject: params.subject,
+    html: params.html,
+  });
+
+  // Resend returns { error } instead of throwing on API failures
+  if (error) {
+    throw new Error(
+      `Resend failed for ${params.to}: ${error.message} (${error.name})`,
+    );
+  }
+
+  return data;
+}
+
 async function sendWaitlistConfirmation(email: string, unsubscribeToken: string) {
   const unsubscribeHref = getWaitlistUnsubscribeUrl(unsubscribeToken);
   const linkedInHref = process.env.COMPANY_LINKEDIN_URL;
 
-  await resend.emails.send({
-    from: getFromAddress(),
+  await sendResendEmail({
     to: email,
     subject: WAITLIST_CONFIRMATION_SUBJECT,
     html: getWaitlistConfirmationHtml({
@@ -50,8 +71,7 @@ async function notifySupportOfJoin(email: string, createdAt: Date) {
     return;
   }
 
-  await resend.emails.send({
-    from: getFromAddress(),
+  await sendResendEmail({
     to: supportEmail,
     subject: WAITLIST_SUPPORT_NOTIFICATION_SUBJECT,
     html: getWaitlistSupportNotificationHtml({ email, createdAt }),
@@ -108,13 +128,15 @@ export async function POST(request: Request) {
       row = inserted.rows[0];
     }
 
-    try {
-      await Promise.all([
-        sendWaitlistConfirmation(email, row.unsubscribe_token),
-        notifySupportOfJoin(email, row.created_at),
-      ]);
-    } catch (emailError) {
-      console.error("Email sending failed:", emailError);
+    const emailResults = await Promise.allSettled([
+      sendWaitlistConfirmation(email, row.unsubscribe_token),
+      notifySupportOfJoin(email, row.created_at),
+    ]);
+
+    for (const result of emailResults) {
+      if (result.status === "rejected") {
+        console.error("Email sending failed:", result.reason);
+      }
     }
 
     return NextResponse.json(
