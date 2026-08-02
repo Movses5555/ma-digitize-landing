@@ -17,7 +17,7 @@ export function getWaitlistConfirmationHtml(opts: {
   unsubscribeHref: string;
   linkedInHref?: string;
 }): string {
-  const DOMAIN_URL = "https://madigitize.com/";
+  const DOMAIN_URL = "https://madigitize.com";
   const supportEmail = getSupportEmail();
   
   const { unsubscribeHref, linkedInHref = "https://www.linkedin.com/in/mher-avagyan-a649b7219/" } = opts;
@@ -38,7 +38,9 @@ export function getWaitlistConfirmationHtml(opts: {
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:560px;background:#FFFFFF;border-radius:12px;border:1px solid #E5E7EB;">
         <tr>
           <td style="padding:28px 28px 20px;">
-            <img src="${DOMAIN_URL}/logo.png" alt="MA" width="105" height="32" style="display:block; border:0; border-radius:8px;" />
+            <a href="${DOMAIN_URL}" style="display:inline-block;text-decoration:none;" aria-label="madigitize">
+              <img src="${DOMAIN_URL}/logo.svg" alt="MA" width="105" height="32" style="display:block; border:0; border-radius:8px;" />
+            </a>
             <div style="height:1px;background:#E5E7EB;margin:20px 0 24px;"></div>
             <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25;color:#111827;font-weight:700;">
               MA UI Kit — You're on the Early Access waitlist
