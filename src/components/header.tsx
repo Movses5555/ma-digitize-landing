@@ -73,6 +73,14 @@ export default function Header() {
     }
   };
 
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    closeMenu();
+    if (pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const handleNavClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -92,7 +100,7 @@ export default function Header() {
         <div className="w-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5] p-4 md:px-6">
           <div className="flex justify-between items-center gap-4">
             <div className="flex justify-between items-center gap-8">
-              <Link href="/" className="flex gap-2 shrink-0">
+              <Link href="/" className="flex gap-2 shrink-0" onClick={handleLogoClick}>
                 <div className="relative w-[105px] h-8">
                   <Image
                     src="/logo.svg"
@@ -173,7 +181,7 @@ export default function Header() {
           >
           <div className="flex flex-col w-full h-full bg-white rounded-2xl border-[1.5px] border-[#E1E3E5]">
               <div className="flex items-center justify-between p-5">
-                <Link href="/" className="flex gap-2" onClick={closeMenu}>
+                <Link href="/" className="flex gap-2" onClick={handleLogoClick}>
                   <div className="relative w-[105px] h-8">
                     <Image
                       src="/logo.svg"
