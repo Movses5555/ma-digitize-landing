@@ -32,7 +32,7 @@ export default function Hero() {
         <Reveal immediate delay={450} y={32} className="mt-8 md:mt-12 lg:mt-14 w-full max-w-[1248px]">
           <div className="relative aspect-[1248/570] w-full overflow-hidden bg-[#ffffff]">
             <Image
-              src="/hero_preview.jpg"
+              src="/hero_preview.svg"
               alt="MA UI Kit Dashboard Preview"
               fill
               priority
