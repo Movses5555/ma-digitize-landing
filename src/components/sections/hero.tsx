@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
         </Reveal>
         <Reveal immediate delay={450} y={32} className="mt-8 md:mt-12 lg:mt-14 w-full max-w-[1248px]">
-          <div className="relative aspect-[329/151.86] md:aspect-[1248/570] w-full overflow-hidden rounded-[6px] md:rounded-xl lg:rounded-2xl bg-[#F9FAFB]">
+          <div className="relative aspect-[329/151.86] md:aspect-[1248/570] w-full overflow-hidden rounded-[6px] md:rounded-[4px] lg:rounded-[8px] bg-[#F9FAFB]">
             <Image
               src="/hero_preview_mobile.png"
               alt="MA UI Kit Dashboard Preview"
